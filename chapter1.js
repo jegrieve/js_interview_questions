@@ -62,3 +62,41 @@ console.log(urlify('Mr John Smith    ', 13), 'Mr%20John%20Smith');
 //Question 4
 // Palindrome Permutation: Given a string, write a function to check if it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation
 // is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
+const palinPerm = (str) => {
+  str = str.toLowerCase();
+  let hash = {};
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let strChar = str[i];
+    if (strChar === ' ') {
+      continue;
+    } else if (hash[strChar]) {
+      delete hash[strChar];
+    } else {
+      hash[strChar] = true;
+    }
+    count++;
+  }
+  if (count % 2 === 0) {
+    console.log(Object.keys(hash));
+    return Object.keys(hash).length === 0;
+  } else {
+    console.log(Object.keys(hash));
+    return Object.keys(hash).length === 1;
+  }
+};
+
+console.log(palinPerm('Tact Coa'), 'true');
+console.log(palinPerm('Tact boa'), 'false');
+
+//Question 5
+// One Away: There are three types of edits that can be performed on strings: insert a character,
+// remove a character, or replace a character. Given two strings, write a function to check if they are
+// one edit (or zero edits) away.
+//Redo-this
+
+console.log(oneAway('pale', 'ple'), true);
+console.log(oneAway('pales', 'pale'), true);
+console.log(oneAway('pale', 'bale'), true);
+console.log(oneAway('pale', 'bake'), false);
