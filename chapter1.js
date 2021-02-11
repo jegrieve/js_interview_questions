@@ -94,7 +94,28 @@ console.log(palinPerm('Tact boa'), 'false');
 // One Away: There are three types of edits that can be performed on strings: insert a character,
 // remove a character, or replace a character. Given two strings, write a function to check if they are
 // one edit (or zero edits) away.
-//Redo-this
+const oneAway = (origStr, modiStr) => {
+  let longestStr;
+  let shortestStr;
+  let similarityCount = 0;
+  if (origStr.length > modiStr.length) {
+    longestStr = origStr;
+    shortestStr = modiStr;
+  } else {
+    longestStr = modiStr;
+    shortestStr = origStr;
+  }
+  for (let i = 0; i < longestStr.length; i++) {
+    if (longestStr[i] === shortestStr[i]) {
+      similarityCount++;
+      continue;
+    }
+    if (longestStr[i + 1] === shortestStr[i] && shortestStr[i] !== undefined) {
+      similarityCount++;
+    }
+  }
+  return similarityCount === longestStr.length - 1;
+};
 
 console.log(oneAway('pale', 'ple'), true);
 console.log(oneAway('pales', 'pale'), true);
