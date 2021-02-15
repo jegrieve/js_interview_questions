@@ -121,3 +121,33 @@ console.log(oneAway('pale', 'ple'), true);
 console.log(oneAway('pales', 'pale'), true);
 console.log(oneAway('pale', 'bale'), true);
 console.log(oneAway('pale', 'bake'), false);
+
+//Question 6
+// String Compression: Implement a method to perform basic string compression using the counts
+// of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the
+// "compressed" string would not become smaller than the original string, your method should return
+// the original string. You can assume the string has only uppercase and lowercase letters (a - z).
+// *Assuming upper and lowercase letters stack.
+// compressStr(aaAAbCC) = > a2A2b1C2
+
+const compressStr = (str) => {
+  let count = 1;
+  let cStr = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let currentChar = str[i];
+    let nextChar = str[i + 1];
+    if (currentChar === nextChar) {
+      count += 1;
+    } else {
+      cStr += str[i] + count;
+      count = 1;
+    }
+  }
+  return cStr.length < str.length ? cStr : str;
+};
+
+console.log('aaaaaa', compressStr('aaaaaa'), 'a6');
+console.log('aabcccccaaa', compressStr('aabcccccaaa'), 'a2b1c5a3');
+
+//Question 7
