@@ -185,3 +185,21 @@ console.log(rotatedMatrix, rotateMatrix(testMatrix));
 //Question 8
 //Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
 //column are set to 0.
+
+let testMatrix = [
+  [1, 1, 1, 1],
+  [1, 1, 1, 1],
+  [1, 0, 1, 1],
+  [1, 1, 1, 1],
+  [1, 1, 1, 1],
+  [1, 1, 1, 1],
+];
+
+let solvedMatrix = [
+  [1, 0, 1, 1],
+  [1, 0, 1, 1],
+  [0, 0, 0, 0],
+  [1, 0, 1, 1],
+  [1, 0, 1, 1],
+  [1, 0, 1, 1],
+];
