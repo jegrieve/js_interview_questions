@@ -151,3 +151,37 @@ console.log('aaaaaa', compressStr('aaaaaa'), 'a6');
 console.log('aabcccccaaa', compressStr('aabcccccaaa'), 'a2b1c5a3');
 
 //Question 7
+// Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4
+// bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+const rotateMatrix = (matrix) => {
+  let rotatedMatrix = [];
+  for (let y = matrix.length - 1; y >= 0; y--) {
+    let transposedArr = [];
+    for (let x = 0; x < matrix.length; x++) {
+      transposedArr.push(matrix[y][x]);
+    }
+    rotatedMatrix.push(transposedArr);
+    console.log(transposedArr);
+  }
+  return rotatedMatrix;
+};
+
+let testMatrix = [
+  [1, 2, 3, 4],
+  [0, 1, 2, 3],
+  [0, 0, 1, 2],
+  [1, 0, 0, 1],
+];
+
+let rotatedMatrix = [
+  [1, 0, 0, 1],
+  [0, 0, 1, 2],
+  [0, 1, 2, 3],
+  [1, 2, 3, 4],
+];
+
+console.log(rotatedMatrix, rotateMatrix(testMatrix));
+
+//Question 8
+//Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+//column are set to 0.
